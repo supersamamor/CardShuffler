@@ -1,0 +1,23 @@
+﻿@page
+@model CardShuffler.Web.Pages.Card.IndexModel
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+<div class="container-fluid">
+    <form method="get">
+        <button class="btn btn-primary">Shuffler Cards</button>
+    </form>
+   
+    <div class="row">
+        @foreach (var item in Model.CardList)
+        {
+
+            <div class="col-lg-1" style="margin-top:10px;background-size:100% 100%;background-image:url('Cards/@(item).svg');height:120px; background-repeat: no-repeat;">
+
+            </div>
+        }
+
+    </div>
+</div>
