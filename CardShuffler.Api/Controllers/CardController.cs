@@ -17,14 +17,16 @@ namespace CardShuffler.Api.Controllers
             return Shuffler(DataSeeder());
         }
 
-
-        public IList<int> Shuffler(IList<int> cardList) {          
+        #region Logic
+        private IList<int> Shuffler(IList<int> cardList) {          
             //Randomize
             cardList = cardList.OrderBy(l => Guid.NewGuid()).ToList();
 
             return cardList;
         }
+        #endregion
 
+        #region Data
         private IList<int> DataSeeder() {
             //Fill Data
             var CardList = new List<int>();
@@ -34,5 +36,6 @@ namespace CardShuffler.Api.Controllers
             }
             return CardList;
         }
+        #endregion
     }
 }

@@ -22,8 +22,5 @@ namespace CardShuffler.Web.Pages.Card
         {           
             CardList = await _service.GetShuffledCards();
         }
-
-    
-        
     }
 }
