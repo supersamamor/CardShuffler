@@ -16,7 +16,7 @@ namespace CardShuffler.Api.Controllers.Tests
         [TestMethod()]
         public void ShufflerTestPrintCards()
         {
-            var cardList = _controller.Shuffler(DataSeeder());
+            var cardList = _controller.ShuffleCard();
             foreach (var card in cardList) {
                 Console.WriteLine("Card No." + card);
             }
@@ -24,8 +24,8 @@ namespace CardShuffler.Api.Controllers.Tests
         }
 
         [TestMethod()]
-        public void ShufflerTestCardCount() {     
-            var cardList = _controller.Shuffler(DataSeeder());
+        public void ShufflerTestCardCount() {
+            var cardList = _controller.ShuffleCard();
             Console.WriteLine("Expected No. Of Cards is " + 52 + ". Actual number of card is " + cardList.Count);
             Assert.AreEqual(cardList.Count, 52);
         }
@@ -34,7 +34,7 @@ namespace CardShuffler.Api.Controllers.Tests
         public void ShufflerTestCardDuplicate()
         {
 
-            var cardList = _controller.Shuffler(DataSeeder());
+            var cardList = _controller.ShuffleCard();
             var anyDuplicate = cardList.GroupBy(x => x).Any(g => g.Count() > 1);
 
 
@@ -50,7 +50,7 @@ namespace CardShuffler.Api.Controllers.Tests
         public void ShufflerTestLowestCardNo()
         {
 
-            var cardList = _controller.Shuffler(DataSeeder());
+            var cardList = _controller.ShuffleCard();
             if (cardList.Min() != 1)
             {
                 Console.WriteLine("Lowest card no must be 1");
@@ -62,7 +62,7 @@ namespace CardShuffler.Api.Controllers.Tests
         public void ShufflerTestHighestCardNo()
         {
 
-            var cardList = _controller.Shuffler(DataSeeder());
+            var cardList = _controller.ShuffleCard();
             if (cardList.Max() != 52)
             {
                 Console.WriteLine("Lowest card no must be 1");
